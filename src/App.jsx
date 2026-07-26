@@ -4,6 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import BarraNavegacion from "./components/BarraNavegacion";
 import ListaMascotas from "./page/ListaMascotas";
 
 function App() {

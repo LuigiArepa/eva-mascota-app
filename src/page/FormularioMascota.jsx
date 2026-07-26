@@ -1,37 +1,37 @@
-import { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import api from '../servicios/api';
-import BannerError from '../componentes/BannerError';
-import { NotyfContext } from '../contexto/NotyfContext';
-import { Save, Image, RefreshCw } from 'lucide-react';
-import '../styles/formularioMascota.css';
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../servicios/api";
+import BannerError from "../components/BannerError";
+import { NotyfContext } from "../contexto/NotyfContext";
+import { Save, Image, RefreshCw } from "lucide-react";
+import "../styles/formularioMascota.css";
 
 const OPCIONES_FALLBACK = {
   estado: [
-    { value: 'perdida', label: 'Perdida' },
-    { value: 'encontrada', label: 'Encontrada' },
-    { value: 'en_adopcion', label: 'En adopción' },
-    { value: 'adoptada', label: 'Adoptada' }
+    { value: "perdida", label: "Perdida" },
+    { value: "encontrada", label: "Encontrada" },
+    { value: "en_adopcion", label: "En adopción" },
+    { value: "adoptada", label: "Adoptada" },
   ],
   tipo_animal: [
-    { value: 'perro', label: 'Perro' },
-    { value: 'gato', label: 'Gato' },
-    { value: 'ave', label: 'Ave' },
-    { value: 'roedor', label: 'Roedor' },
-    { value: 'reptil', label: 'Reptil' },
-    { value: 'otro', label: 'Otro' }
+    { value: "perro", label: "Perro" },
+    { value: "gato", label: "Gato" },
+    { value: "ave", label: "Ave" },
+    { value: "roedor", label: "Roedor" },
+    { value: "reptil", label: "Reptil" },
+    { value: "otro", label: "Otro" },
   ],
   sexo: [
-    { value: 'macho', label: 'Macho' },
-    { value: 'hembra', label: 'Hembra' },
-    { value: 'desconocido', label: 'Desconocido' }
+    { value: "macho", label: "Macho" },
+    { value: "hembra", label: "Hembra" },
+    { value: "desconocido", label: "Desconocido" },
   ],
   tamano: [
-    { value: 'pequeno', label: 'Pequeño' },
-    { value: 'mediano', label: 'Mediano' },
-    { value: 'grande', label: 'Grande' },
-    { value: 'desconocido', label: 'Desconocido' }
-  ]
+    { value: "pequeno", label: "Pequeño" },
+    { value: "mediano", label: "Mediano" },
+    { value: "grande", label: "Grande" },
+    { value: "desconocido", label: "Desconocido" },
+  ],
 };
 
 const FormularioMascota = () => {
@@ -42,19 +42,19 @@ const FormularioMascota = () => {
     estado: [],
     tipo_animal: [],
     sexo: [],
-    tamano: []
+    tamano: [],
   });
   const [cargandoOpciones, setCargandoOpciones] = useState(true);
 
-  const [nombre, setNombre] = useState('');
-  const [descripcion, setDescripcion] = useState('');
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
   const [imagen, setImagen] = useState(null);
-  const [estado, setEstado] = useState('perdida');
-  const [tipoAnimal, setTipoAnimal] = useState('otro');
-  const [edad, setEdad] = useState('');
-  const [raza, setRaza] = useState('');
-  const [sexo, setSexo] = useState('desconocido');
-  const [tamano, setTamano] = useState('desconocido');
+  const [estado, setEstado] = useState("perdida");
+  const [tipoAnimal, setTipoAnimal] = useState("otro");
+  const [edad, setEdad] = useState("");
+  const [raza, setRaza] = useState("");
+  const [sexo, setSexo] = useState("desconocido");
+  const [tamano, setTamano] = useState("desconocido");
 
   const [enviando, setEnviando] = useState(false);
   const [error, setError] = useState(null);
@@ -63,7 +63,7 @@ const FormularioMascota = () => {
     const obtenerOpciones = async () => {
       setCargandoOpciones(true);
       try {
-        const res = await api.get('/choices/');
+        const res = await api.get("/choices/");
         setOpciones(res.data);
 
         if (res.data.estado && res.data.estado.length > 0) {
@@ -100,43 +100,58 @@ const FormularioMascota = () => {
     setEnviando(true);
 
     if (!nombre.trim()) {
-      setError({ response: { status: 400, data: { nombre: ['El nombre es requerido.'] } } });
+      setError({
+        response: {
+          status: 400,
+          data: { nombre: ["El nombre es requerido."] },
+        },
+      });
       setEnviando(false);
       return;
     }
     if (!descripcion.trim()) {
-      setError({ response: { status: 400, data: { descripcion: ['La descripción es requerida.'] } } });
+      setError({
+        response: {
+          status: 400,
+          data: { descripcion: ["La descripción es requerida."] },
+        },
+      });
       setEnviando(false);
       return;
     }
     if (!imagen) {
-      setError({ response: { status: 400, data: { imagen: ['Debes seleccionar una imagen para la mascota.'] } } });
+      setError({
+        response: {
+          status: 400,
+          data: { imagen: ["Debes seleccionar una imagen para la mascota."] },
+        },
+      });
       setEnviando(false);
       return;
     }
 
     const formData = new FormData();
-    formData.append('nombre', nombre.trim());
-    formData.append('descripcion', descripcion.trim());
-    formData.append('imagen', imagen);
-    formData.append('estado', estado);
-    formData.append('tipo_animal', tipoAnimal);
-    formData.append('raza', raza.trim());
-    formData.append('sexo', sexo);
-    formData.append('tamano', tamano);
+    formData.append("nombre", nombre.trim());
+    formData.append("descripcion", descripcion.trim());
+    formData.append("imagen", imagen);
+    formData.append("estado", estado);
+    formData.append("tipo_animal", tipoAnimal);
+    formData.append("raza", raza.trim());
+    formData.append("sexo", sexo);
+    formData.append("tamano", tamano);
 
-    if (edad !== '') {
-      formData.append('edad', parseInt(edad, 10));
+    if (edad !== "") {
+      formData.append("edad", parseInt(edad, 10));
     }
 
     try {
-      await api.post('/mascotas/', formData, {
+      await api.post("/mascotas/", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+          "Content-Type": "multipart/form-data",
+        },
       });
-      notyf.success('Mascota registrada correctamente');
-      navigate('/');
+      notyf.success("Mascota registrada correctamente");
+      navigate("/");
     } catch (err) {
       setError(err);
     } finally {
@@ -148,7 +163,9 @@ const FormularioMascota = () => {
     <div className="tarjeta-formulario">
       <div className="encabezado-formulario">
         <h2 className="titulo-formulario">Reportar Mascota</h2>
-        <p className="subtitulo-formulario">Ingresa los datos del animal para guardarlo en la red de apoyo.</p>
+        <p className="subtitulo-formulario">
+          Ingresa los datos del animal para guardarlo en la red de apoyo.
+        </p>
       </div>
 
       {error && <BannerError error={error} alCerrar={() => setError(null)} />}
@@ -291,7 +308,8 @@ const FormularioMascota = () => {
 
           <div className="grupo-formulario">
             <label className="etiqueta-formulario" htmlFor="descTextarea">
-              Descripción de la mascota <span className="texto-requerido">*</span>
+              Descripción de la mascota{" "}
+              <span className="texto-requerido">*</span>
             </label>
             <textarea
               id="descTextarea"
@@ -325,7 +343,7 @@ const FormularioMascota = () => {
                 disabled={enviando}
               />
               <span className="nombre-archivo">
-                {imagen ? imagen.name : 'Ningún archivo seleccionado'}
+                {imagen ? imagen.name : "Ningún archivo seleccionado"}
               </span>
             </div>
           </div>
