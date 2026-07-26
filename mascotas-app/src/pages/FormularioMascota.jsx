@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../servicios/api";
-import BannerError from "../componentes/BannerError";
+import api from "../api/api";
+import BannerError from "../components/BannerError";
 import { NotyfContext } from "../contexto/NotyfContext";
 import { Save, Image, RefreshCw } from "lucide-react";
 import "../styles/formularioMascota.css";

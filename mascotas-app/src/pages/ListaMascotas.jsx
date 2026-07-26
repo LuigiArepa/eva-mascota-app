@@ -1,42 +1,24 @@
 import { useEffect, useState, useContext } from "react";
-
 import api from "../api/api";
-
-import TarjetaMascota from "../componentes/TarjetaMascota";
-
-import ModalEditarEstado from "../componentes/ModalEditarEstado";
-
-import BannerError from "../componentes/BannerError";
-
+import TarjetaMascota from "../components/TarjetaMascota";
+import ModalEditarEstado from "../components/ModalEditarEstado";
+import BannerError from "../components/BannerError";
 import { NotyfContext } from "../contexto/NotyfContext";
-
 import { Search, AlertCircle } from "lucide-react";
-
 import "../styles/listarMascotas.css";
 
 const ListaMascotas = () => {
   const notyf = useContext(NotyfContext);
-
   const [mascotas, setMascotas] = useState([]);
-
   const [favoritos, setFavoritos] = useState([]);
-
   const [cargando, setCargando] = useState(true);
-
   const [error, setError] = useState(null);
-
   const [busqueda, setBusqueda] = useState("");
-
   const [filtroEstado, setFiltroEstado] = useState("");
-
   const [filtroTipo, setFiltroTipo] = useState("");
-
   const [modalAbierto, setModalAbierto] = useState(false);
-
   const [idSeleccionado, setIdSeleccionado] = useState(null);
-
   const [estadoSeleccionado, setEstadoSeleccionado] = useState("");
-
   const obtenerMascotas = async () => {
     setCargando(true);
 

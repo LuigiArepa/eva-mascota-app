@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import api from "../servicios/api";
-import BannerError from "../componentes/BannerError";
+import api from "../api/api";
+import BannerError from "../components/BannerError";
 import { NotyfContext } from "../contexto/NotyfContext";
 import { ArrowLeft, MessageSquare, Send, Trash2, Heart } from "lucide-react";
 import "../styles/detalleMascota.css";

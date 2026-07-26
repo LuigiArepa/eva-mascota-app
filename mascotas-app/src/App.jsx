@@ -5,7 +5,8 @@ import {
   Navigate, 
 } from "react-router-dom"; 
 
-import ListaMascotas from "./page/ListaMascotas"; 
+import BarraNavegacion from "./components/BarraNavegacion";
+import ListaMascotas from "./pages/ListaMascotas"; 
 
 function App() { 
   return ( 
