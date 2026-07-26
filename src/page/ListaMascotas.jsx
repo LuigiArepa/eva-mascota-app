@@ -5,6 +5,7 @@ import ModalEditarEstado from "../componentes/ModalEditarEstado";
 import BannerError from "../componentes/BannerError";
 import { NotyfContext } from "../contexto/NotyfContext";
 import { Search, AlertCircle } from "lucide-react";
+import "../styles/listarMascotas.css";
 
 const ListaMascotas = () => {
   const notyf = useContext(NotyfContext);
