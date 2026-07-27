@@ -3,7 +3,7 @@ import api from "../api/api";
 import TarjetaMascota from "../components/TarjetaMascota";
 import ModalEditarEstado from "../components/ModalEditarEstado";
 import BannerError from "../components/BannerError";
-import { NotyfContext } from "../contexto/NotyfContext";
+import { NotyfContext } from "../context/NotyfContext";
 import { validarMascota } from "../utils/validations";
 import { Search, AlertCircle } from "lucide-react";
 import "../styles/listarMascotas.css";

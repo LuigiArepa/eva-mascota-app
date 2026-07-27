@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Heart, Trash2, Edit2, Check, Star, ArrowLeft } from "lucide-react";
-import { NotyfContext } from "../contexto/NotyfContext";
+import { NotyfContext } from "../context/NotyfContext";
+import { validarMascota } from "../utils/validations";
 import "../styles/favoritos.css";
 
 const Favoritos = () => {
@@ -16,6 +17,7 @@ const Favoritos = () => {
       if (savedFavorites) {
         const parsed = JSON.parse(savedFavorites);
         if (Array.isArray(parsed)) {
+          const validFavorites = parsed.filter(validarMascota);
           setFavoritos(validFavorites);
 
           if (validFavorites.length !== parsed.length) {
