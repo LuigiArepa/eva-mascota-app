@@ -375,4 +375,5 @@ const DetalleMascota = () => {
   );
 };
 
+
 export default DetalleMascota;

@@ -61,4 +61,5 @@ const ModalEditarEstado = ({ abierto, estadoActual, alCerrar, alGuardar }) => {
   );
 };
 
+
 export default ModalEditarEstado;

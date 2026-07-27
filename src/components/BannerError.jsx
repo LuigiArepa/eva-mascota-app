@@ -89,4 +89,5 @@ const BannerError = ({ error, alCerrar }) => {
   );
 };
 
+
 export default BannerError;

@@ -27,4 +27,5 @@ const BarraNavegacion = () => (
   </nav>
 );
 
+
 export default BarraNavegacion;
