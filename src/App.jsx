@@ -12,7 +12,7 @@ import DetalleMascota from "./pages/DetalleMascota";
 function App() {
   return (
     <Router>
-      <div className="app-container">
+      <div className="contenedor-app">
         <BarraNavegacion />
         <main className="contenido-principal">
           <Routes>

@@ -245,7 +245,7 @@ const DetalleMascota = () => {
             <div className="titulo-detalle">
               <span>{mascota.nombre}</span>
               <span
-                className={`etiqueta-estado status-${mascota.estado} badge-estatico`}
+                className={`etiqueta-estado estado-${mascota.estado} badge-estatico`}
               >
                 {t(mascota.estado)}
               </span>
@@ -334,10 +334,10 @@ const DetalleMascota = () => {
             >
               <h4 className="titulo-formulario-comentario">Deja tu mensaje</h4>
 
-              <div className="grupo-formulario grupo-formulario">
+              <div className="grupo-formulario">
                 <input
                   type="text"
-                  className="input-formulario"
+                  className="entrada-formulario"
                   placeholder="Tu nombre (autor)..."
                   value={autor}
                   onChange={(e) => setAutor(e.target.value)}
@@ -346,7 +346,7 @@ const DetalleMascota = () => {
                 />
               </div>
 
-              <div className="grupo-formulario grupo-formulario">
+              <div className="grupo-formulario">
                 <textarea
                   className="textarea-formulario textarea-comentario"
                   placeholder="Escribe tu comentario aquí..."

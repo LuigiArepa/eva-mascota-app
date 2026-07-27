@@ -12,13 +12,13 @@ const ModalEditarEstado = ({ abierto, estadoActual, alCerrar, alGuardar }) => {
   };
 
   return (
-    <div className="modal-overlay" onClick={alCerrar}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
+    <div className="superposicion-modal" onClick={alCerrar}>
+      <div className="contenido-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="encabezado-modal">
           <h3 className="titulo-modal">Actualizar Estado</h3>
           <button
             onClick={alCerrar}
-            className="theme-toggle-btn"
+            className="boton-cerrar-modal"
             title="Cerrar modal"
             aria-label="Cerrar"
           >
@@ -26,13 +26,13 @@ const ModalEditarEstado = ({ abierto, estadoActual, alCerrar, alGuardar }) => {
           </button>
         </div>
         <form onSubmit={manejarEnvio}>
-          <div className="form-group">
-            <label className="form-label" htmlFor="modalStatusSelect">
+          <div className="grupo-formulario">
+            <label className="etiqueta-formulario" htmlFor="selectorEstadoModal">
               Selecciona el nuevo estado:
             </label>
             <select
-              id="modalStatusSelect"
-              className="form-select"
+              id="selectorEstadoModal"
+              className="selector-formulario"
               value={estadoSeleccionado}
               onChange={(e) => setEstadoSeleccionado(e.target.value)}
             >
@@ -42,15 +42,15 @@ const ModalEditarEstado = ({ abierto, estadoActual, alCerrar, alGuardar }) => {
               <option value="adoptada">Adoptada</option>
             </select>
           </div>
-          <div className="modal-actions">
+          <div className="acciones-modal">
             <button
               type="button"
-              className="btn btn-secondary"
+              className="boton boton-secundario"
               onClick={alCerrar}
             >
               Cancelar
             </button>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="boton boton-primario">
               <Check size={16} />
               Guardar
             </button>

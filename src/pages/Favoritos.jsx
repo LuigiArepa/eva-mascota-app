@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Heart, Trash2, Edit2, Check, Star, ArrowLeft } from "lucide-react";
 import { NotyfContext } from "../context/NotyfContext";
 import { validarMascota } from "../utils/validations";
+import "../styles/listarMascotas.css";
 import "../styles/favoritos.css";
 
 const Favoritos = () => {
@@ -103,7 +104,7 @@ const Favoritos = () => {
 
       {favoritos.length === 0 ? (
         <div className="estado-vacio">
-          <Heart size={48} className="icono-estado-vacio texto-discreto" />
+          <Heart size={48} className="icono-estado-vacio" />
           <h3 className="titulo-estado-vacio">
             Tu lista de favoritos está vacía
           </h3>
@@ -133,7 +134,7 @@ const Favoritos = () => {
                       "https://via.placeholder.com/400x300?text=Error+Imagen";
                   }}
                 />
-                <span className={`etiqueta-estado status-${fav.estado}`}>
+                <span className={`etiqueta-estado estado-${fav.estado}`}>
                   {fav.estado.charAt(0).toUpperCase() +
                     fav.estado.slice(1).replace("_", " ")}
                 </span>
@@ -162,7 +163,7 @@ const Favoritos = () => {
                   </div>
                 </div>
 
-                <div className="meta-mascota meta-con-margen">
+                <div className="meta-mascota">
                   <span className="item-meta-mascota">{fav.tipo_animal}</span>
                   {fav.raza && (
                     <span className="item-meta-mascota">{fav.raza}</span>
@@ -175,7 +176,7 @@ const Favoritos = () => {
                     {editandoId === fav.id ? (
                       <button
                         onClick={() => guardarNota(fav.id)}
-                        className="btn-icono-success"
+                        className="boton-icono-exito"
                         title="Guardar cambios"
                       >
                         <Check size={16} />
@@ -183,7 +184,7 @@ const Favoritos = () => {
                     ) : (
                       <button
                         onClick={() => iniciarEdicion(fav.id, fav.notes)}
-                        className="btn-icono-primary"
+                        className="boton-icono-primario"
                         title="Editar notas"
                       >
                         <Edit2 size={14} />
@@ -209,10 +210,10 @@ const Favoritos = () => {
                   )}
                 </div>
 
-                <div className="acciones-mascota acciones-con-margen">
+                <div className="acciones-mascota">
                   <Link
                     to={`/mascotas/${fav.id}`}
-                    className="boton boton-secundario flex-crecer"
+                    className="boton boton-secundario boton-flexible"
                   >
                     Detalle API
                   </Link>

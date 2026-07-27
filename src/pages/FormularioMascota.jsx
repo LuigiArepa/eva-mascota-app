@@ -184,7 +184,7 @@ const FormularioMascota = () => {
             <input
               id="nombreInput"
               type="text"
-              className="input-formulario"
+              className="entrada-formulario"
               placeholder="Ej: Firulais, Pelusa"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
@@ -200,7 +200,7 @@ const FormularioMascota = () => {
               </label>
               <select
                 id="tipoSelect"
-                className="select-formulario"
+                className="selector-formulario"
                 value={tipoAnimal}
                 onChange={(e) => setTipoAnimal(e.target.value)}
                 disabled={enviando}
@@ -220,7 +220,7 @@ const FormularioMascota = () => {
               <input
                 id="razaInput"
                 type="text"
-                className="input-formulario"
+                className="entrada-formulario"
                 placeholder="Ej: Mestizo, Golden"
                 value={raza}
                 onChange={(e) => setRaza(e.target.value)}
@@ -236,7 +236,7 @@ const FormularioMascota = () => {
               </label>
               <select
                 id="estadoSelect"
-                className="select-formulario"
+                className="selector-formulario"
                 value={estado}
                 onChange={(e) => setEstado(e.target.value)}
                 disabled={enviando}
@@ -257,7 +257,7 @@ const FormularioMascota = () => {
                 id="edadInput"
                 type="number"
                 min="0"
-                className="input-formulario"
+                className="entrada-formulario"
                 placeholder="Ej: 2, 5 (opcional)"
                 value={edad}
                 onChange={(e) => setEdad(e.target.value)}
@@ -273,7 +273,7 @@ const FormularioMascota = () => {
               </label>
               <select
                 id="sexoSelect"
-                className="select-formulario"
+                className="selector-formulario"
                 value={sexo}
                 onChange={(e) => setSexo(e.target.value)}
                 disabled={enviando}
@@ -292,7 +292,7 @@ const FormularioMascota = () => {
               </label>
               <select
                 id="tamanoSelect"
-                className="select-formulario"
+                className="selector-formulario"
                 value={tamano}
                 onChange={(e) => setTamano(e.target.value)}
                 disabled={enviando}

@@ -61,13 +61,13 @@ const BannerError = ({ error, alCerrar }) => {
   }
 
   return (
-    <div className="error-banner">
+    <div className="banner-error">
       <AlertCircle size={24} className="icono-error" />
       <div className="contenido-error">
         <h4 className="titulo-error">{titulo}</h4>
         <p className="mensaje-error">{mensaje}</p>
         {detalles && (
-          <ul className="error-banner-details">
+          <ul className="detalles-banner-error">
             {detalles.map((item, idx) => (
               <li key={idx}>
                 <strong>{item.campo}:</strong> {item.mensaje}
@@ -79,7 +79,7 @@ const BannerError = ({ error, alCerrar }) => {
       {alCerrar && (
         <button
           onClick={alCerrar}
-          className="btn-cerrar-error"
+          className="boton-cerrar-error"
           title="Cerrar aviso"
         >
           &times;

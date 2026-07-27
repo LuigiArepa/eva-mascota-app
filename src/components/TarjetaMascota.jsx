@@ -17,30 +17,30 @@ const TarjetaMascota = ({
 }) => {
   const { id, nombre, descripcion, imagen, estado, tipo_animal, raza, edad } =
     mascota;
-  const claseEstado = "status-" + estado;
+  const claseEstado = "estado-" + estado;
   const etiquetaEstado = ETIQUETAS_ESTADO[estado] || estado;
 
   return (
-    <div className="pet-card">
-      <div className="pet-image-container">
+    <div className="tarjeta-mascota">
+      <div className="contenedor-imagen-mascota">
         <img
           src={imagen || "https://via.placeholder.com/400x300?text=Sin+Imagen"}
           alt={nombre}
-          className="pet-image"
+          className="imagen-mascota"
           onError={(e) => {
             e.target.src =
               "https://via.placeholder.com/400x300?text=Error+Carga+Imagen";
           }}
         />
-        <span className={"pet-badge-status " + claseEstado}>
+        <span className={"etiqueta-estado " + claseEstado}>
           {etiquetaEstado}
         </span>
       </div>
-      <div className="pet-info">
-        <div className="pet-name">
+      <div className="info-mascota">
+        <div className="nombre-mascota">
           <span>{nombre}</span>
           <button
-            className={"favorite-btn" + (esFavorito ? " active" : "")}
+            className={"boton-favorito" + (esFavorito ? " activo" : "")}
             onClick={(e) => {
               e.preventDefault();
               alAlternarFavorito(mascota);
@@ -51,26 +51,26 @@ const TarjetaMascota = ({
             <Heart size={20} fill={esFavorito ? "#ff4757" : "none"} />
           </button>
         </div>
-        <div className="pet-meta">
+        <div className="meta-mascota">
           {tipo_animal && (
-            <span className="pet-meta-item">
+            <span className="item-meta-mascota">
               {tipo_animal.charAt(0).toUpperCase() + tipo_animal.slice(1)}
             </span>
           )}
-          {raza && <span className="pet-meta-item">{raza}</span>}
+          {raza && <span className="item-meta-mascota">{raza}</span>}
           {edad !== null && edad !== undefined && (
-            <span className="pet-meta-item">
+            <span className="item-meta-mascota">
               {edad} {edad === 1 ? "ano" : "anos"}
             </span>
           )}
         </div>
-        <p className="pet-desc">
+        <p className="descripcion-mascota">
           {descripcion || "Sin descripcion disponible."}
         </p>
-        <div className="pet-actions">
+        <div className="acciones-mascota">
           <Link
             to={"/mascotas/" + id}
-            className="btn btn-secondary flex-crecer"
+            className="boton boton-secundario boton-flexible"
             title="Ver informacion completa"
           >
             <Eye size={16} />
@@ -78,7 +78,7 @@ const TarjetaMascota = ({
           </Link>
           <button
             onClick={() => alEditarEstado(id, estado)}
-            className="btn btn-primary btn-icon"
+            className="boton boton-primario boton-icono"
             title="Actualizar estado"
             aria-label="Editar estado"
           >
@@ -89,7 +89,7 @@ const TarjetaMascota = ({
               if (window.confirm("Estas seguro de eliminar a " + nombre + "?"))
                 alEliminar(id);
             }}
-            className="btn btn-danger btn-icon"
+            className="boton boton-peligro boton-icono"
             title="Eliminar mascota"
             aria-label="Eliminar mascota"
           >

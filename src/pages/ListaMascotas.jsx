@@ -180,68 +180,66 @@ const ListaMascotas = () => {
         </p>
       </div>
 
-      {error && <BannerError error={error} onClose={() => setError(null)} />}
+      {error && <BannerError error={error} alCerrar={() => setError(null)} />}
 
-      <div className="search-filter-container">
+      <div className="contenedor-busqueda-filtro">
         <div className="contenedor-busqueda">
           <Search size={18} className="icono-busqueda" />
           <input
             type="text"
-            className="form-input input-busqueda"
+            className="entrada-formulario entrada-busqueda"
             placeholder="Buscar por nombre, descripción o raza..."
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
         </div>
 
-        <div>
-          <select
-            className="form-select"
-            value={filtroEstado}
-            onChange={(e) => setFiltroEstado(e.target.value)}
-            aria-label="Filtrar por estado"
-          >
-            <option value="">Todos los estados</option>
-            <option value="perdida">Perdidas</option>
-            <option value="encontrada">Encontradas</option>
-            <option value="en_adopcion">En adopción</option>
-            <option value="adoptada">Adoptadas</option>
-          </select>
-        </div>
+        <select
+          className="selector-formulario"
+          style={{ width: "auto", minWidth: "180px" }}
+          value={filtroEstado}
+          onChange={(e) => setFiltroEstado(e.target.value)}
+          aria-label="Filtrar por estado"
+        >
+          <option value="">Todos los estados</option>
+          <option value="perdida">Perdidas</option>
+          <option value="encontrada">Encontradas</option>
+          <option value="en_adopcion">En adopción</option>
+          <option value="adoptada">Adoptadas</option>
+        </select>
 
-        <div>
-          <select
-            className="form-select"
-            value={filtroTipo}
-            onChange={(e) => setFiltroTipo(e.target.value)}
-            aria-label="Filtrar por tipo de animal"
-          >
-            <option value="">Todos los animales</option>
-            <option value="perro">Perros</option>
-            <option value="gato">Gatos</option>
-            <option value="ave">Aves</option>
-            <option value="roedor">Roedores</option>
-            <option value="reptil">Reptiles</option>
-            <option value="otro">Otros</option>
-          </select>
-        </div>
+        <select
+          className="selector-formulario"
+          style={{ width: "auto", minWidth: "180px" }}
+          value={filtroTipo}
+          onChange={(e) => setFiltroTipo(e.target.value)}
+          aria-label="Filtrar por tipo de animal"
+        >
+          <option value="">Todos los animales</option>
+          <option value="perro">Perros</option>
+          <option value="gato">Gatos</option>
+          <option value="ave">Aves</option>
+          <option value="roedor">Roedores</option>
+          <option value="reptil">Reptiles</option>
+          <option value="otro">Otros</option>
+        </select>
       </div>
 
       {cargando ? (
-        <div className="loader-container">
+        <div className="contenedor-carga">
           <div className="spinner"></div>
           <p className="texto-cargando">Cargando listado de mascotas...</p>
         </div>
       ) : mascotasFiltradas.length === 0 ? (
-        <div className="empty-state">
-          <AlertCircle size={48} className="empty-state-icon" />
-          <h3 className="empty-state-title">No se encontraron mascotas</h3>
-          <p className="empty-state-desc">
+        <div className="estado-vacio">
+          <AlertCircle size={48} className="icono-estado-vacio" />
+          <h3 className="titulo-estado-vacio">No se encontraron mascotas</h3>
+          <p className="desc-estado-vacio">
             Prueba a cambiar los filtros o a realizar otra búsqueda.
           </p>
         </div>
       ) : (
-        <div className="pet-grid">
+        <div className="grilla-mascotas">
           {mascotasFiltradas.map((pet) => (
             <TarjetaMascota
               key={pet.id}
