@@ -1,3 +1,9 @@
+Integrantes:
+Luis Jose Reyes Valles 
+Jorge Ramires
+Francisco orellana
+
+
 # MascotasApp Front-End (React + Vite)
 
 Este es el Front-End para la aplicación **MascotasApp**, desarrollado en React y empaquetado con Vite. Consume una API REST remota y gestiona un sistema de favoritos local persistente y seguro mediante Local Storage.
