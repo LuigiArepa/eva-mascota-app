@@ -6,6 +6,8 @@ Francisco orellana
 Enlace a GitHub
 https://github.com/LuigiArepa/eva-mascota-app.git enlace a 
 
+PD: esperamos las 0.8 decimas muchas gracias estimado profesor 
+
 # MascotasApp Front-End (React + Vite)
 
 Este es el Front-End para la aplicación **MascotasApp**, desarrollado en React y empaquetado con Vite. Consume una API REST remota y gestiona un sistema de favoritos local persistente y seguro mediante Local Storage.
